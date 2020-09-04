@@ -5,8 +5,7 @@ usuario de base de datos
 User: fibcer_adan
 password:ynvZom3NRWecZR2Q
 
-cadena de coneccion:
-
+cadena de coneccion ATLAS:
 mongodb+srv://fibcer_adan:ynvZom3NRWecZR2Q@cluster0.d3mdo.mongodb.net/cafe
 
 URL Heroku
