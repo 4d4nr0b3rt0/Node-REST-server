@@ -1,45 +1,33 @@
 require('../config/config');
 
+
+
+const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const bp = require('body-parser');
 
 
+
+
 app.use(bp.urlencoded({ extended: false }));
 app.use(bp.json());
 
+app.use(require('./routes/usuario'));
 
-app.get('/usuario', (req, res) => {
-    res.json('Get de usuario');
-});
 
-app.post('/usuario', (req, res) => {
+mongoose.connect(process.env.localURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+})
 
-    let body = req.body;
 
-    if (body.nombre === undefined) {
 
-        res.status(400).json({
-            ok: false,
-            mensaje: 'El nombre es obligatorio'
-        })
-    } else {
-        res.json({
-            Usuario: body
-        })
-    }
-});
+.then(db => console.log('Base de datos Conectada ON LINE'))
+    .catch(err => console.log(err));
 
-app.put('/usuario/:id', (req, res) => {
-    let id = req.params.id;
-    res.json({
-        id: id
-    });
-});
-
-app.delete('/usuario', (req, res) => {
-    res.json('Delet Usuario');
-});
 
 
 
