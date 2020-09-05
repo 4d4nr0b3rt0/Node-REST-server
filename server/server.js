@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 const bp = require('body-parser');
+const path = require('path');
 
 
 
@@ -18,6 +19,9 @@ app.use(bp.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bp.json());
+
+// Archivo publico
+app.use(express.static(path.resolve(__dirname, '../public')));
 
 
 

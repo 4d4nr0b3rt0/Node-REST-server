@@ -25,3 +25,6 @@ if (process.env.NODE_ENV === 'dev') {
 }
 
 process.env.localURL = urlDB;
+
+// goole
+process.env.CLIENT_ID = process.env.CLIENT_ID || '495362625497-k9k8fgqjl0n99jk2i9935h52ncs6me8m.apps.googleusercontent.com';
