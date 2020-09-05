@@ -1,36 +1,48 @@
+// Requires
+
 require('../config/config');
-
-
-
-const mongoose = require('mongoose');
 const express = require('express');
+const mongoose = require('mongoose');
+
 const app = express();
 const bp = require('body-parser');
 
 
 
 
+
+// middlewares
+
+// parse application/x-www-form-urlencoded
 app.use(bp.urlencoded({ extended: false }));
+
+// parse application/json
 app.use(bp.json());
 
-app.use(require('./routes/usuario'));
 
+
+
+
+
+// Rutas global
+
+app.use(require('./routes/index'));
+
+
+
+
+
+// Conexion DB
 
 mongoose.connect(process.env.localURL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
-})
-
-
-
-.then(db => console.log('Base de datos Conectada ON LINE'))
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true
+    })
+    .then(db => console.log('Base de datos Conectada ON LINE'))
     .catch(err => console.log(err));
 
-
-
-
 app.listen(process.env.PORT, () => {
-    console.log('Server on port 3000');
+    console.log('Server on port:', process.env.PORT);
 });
