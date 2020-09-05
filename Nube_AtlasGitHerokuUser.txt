@@ -9,7 +9,7 @@ cadena de coneccion ATLAS:
 mongodb+srv://fibcer_adan:ynvZom3NRWecZR2Q@cluster0.d3mdo.mongodb.net/cafe
 
 URL Heroku
- https://gentle-ocean-10510.herokuapp.com/ deployed to Heroku
+ https://gentle-ocean-10510.herokuapp.com
 
 PARSE JWT
 function parseJwt (token) {
